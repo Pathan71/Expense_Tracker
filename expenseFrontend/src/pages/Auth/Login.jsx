@@ -5,7 +5,7 @@ import Input from '../../components/Inputs/Input'
 import { validateEmail } from '../../utils/helper'
 import axiosIntance from '../../utils/axiosInstance'
 import { API_PATHS } from '../../utils/apiPath'
-import { UserContext } from '../../context/userContext'
+import { UserContext } from '../../context/userContext.jsx'   // FIXED CASE + EXT
 
 const Login = () => {
 
@@ -17,7 +17,6 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-  // Handle Login Form Submit
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -31,7 +30,6 @@ const Login = () => {
     }
     setError("")
 
-    // LOGIN API CALL
     try {
       const response = await axiosIntance.post(API_PATHS.AUTH.LOGIN, {
         email, password
@@ -66,7 +64,7 @@ const Login = () => {
             type="text"
             value={email}
             label='Email Address'
-            placeholder='Ismail Khan'
+            placeholder='Email'
             onChange={({ target }) => setEmail(target.value)}
           />
 
@@ -74,13 +72,13 @@ const Login = () => {
             type="password"
             value={password}
             label='Password'
-            placeholder='Min 8 Characters'
+            placeholder='Password'
             onChange={({ target }) => setPassword(target.value)}
           />
 
           {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
 
-          <button type='submit' className='w-full text-md font-medium text-white bg-violet-500 shadow-lg shadow-purple-600/5 p-[10px] rounded-md my-1 hover:bg-purple-600/15 hover:text-purple-600'>
+          <button type='submit' className='w-full text-md font-medium text-white bg-violet-500 shadow-lg p-[10px] rounded-md my-1 hover:bg-purple-600/15 hover:text-purple-600'>
             LOGIN
           </button>
 

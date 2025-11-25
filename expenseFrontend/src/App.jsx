@@ -5,15 +5,14 @@ import SignUP from './pages/Auth/SignUp'
 import Home from './pages/Dashboard/Home'
 import Income from './pages/Dashboard/Income'
 import Expense from './pages/Dashboard/Expense'
-import UserProvider from './context/userContext'
+import UserProvider from './context/userContext.jsx'
 import { Toaster } from 'react-hot-toast'
 
 const App = () => {
 
   return (
     <UserProvider>
-      <div>
-        {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Routes>
           <Route path='/' element={<Root />} />
           <Route path='/login' element={<Login />} />
@@ -22,16 +21,14 @@ const App = () => {
           <Route path='/income' element={<Income />} />
           <Route path='/expense' element={<Expense />} />
         </Routes>
-        {/* </BrowserRouter> */}
-      </div>
+      </BrowserRouter>
 
       <Toaster toastOptions={{
         className: "",
         style: {
           fontSize: '13px'
         }
-      }}
-      />
+      }} />
     </UserProvider>
   )
 }
@@ -39,10 +36,8 @@ const App = () => {
 export default App;
 
 const Root = () => {
-  // Check if token exists is localStorage
   const isAuthenticated = !!localStorage.getItem('token')
 
-  // Redirect to dashboard if authenticated, otherwise to login
   return isAuthenticated ? (
     <Navigate to='/dashboard' />
   ) : (

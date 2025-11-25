@@ -6,7 +6,7 @@ import { validateEmail } from '../../utils/helper'
 import ProfilePhotoSelector from '../../components/Inputs/ProfilePhotoSelector'
 import axiosIntance from '../../utils/axiosInstance'
 import { API_PATHS } from '../../utils/apiPath'
-import { UserContext } from '../../context/userContext'
+import { UserContext } from '../../context/userContext.jsx'   // FIXED CASE + EXT
 import uploadImage from '../../utils/uploadImage'
 
 const SignUp = () => {
@@ -21,7 +21,6 @@ const SignUp = () => {
 
   const { updateUser } = useContext(UserContext)
 
-  // Handle SignUp Form Submit
   const handleSignup = async (e) => {
     e.preventDefault()
 
@@ -37,10 +36,8 @@ const SignUp = () => {
     
     setError("");
 
-    // SignUp API Call
     try {
 
-      // Upload image if present
       if(profilePic) {
         const imgUploadRes = await uploadImage(profilePic);
         profileImageUrl = imgUploadRes.imageUrl || "";
@@ -62,7 +59,7 @@ const SignUp = () => {
       if(error.response && error.response.data.message) {
         setError(error.response.data.message)
       } else {
-        setError('Somthing went wrong. Please try again.')
+        setError('Something went wrong. Please try again.')
       }
     }
   }
@@ -84,7 +81,7 @@ const SignUp = () => {
               type='text'
               value={fullName}
               label='Full Name'
-              placeholder='Ismail'
+              placeholder='Your Name'
               onChange={({ target }) => setFullName(target.value)}
             />
 
@@ -92,7 +89,7 @@ const SignUp = () => {
               type="text"
               value={email}
               label='Email Address'
-              placeholder='Ismail Khan'
+              placeholder='Email'
               onChange={({ target }) => setEmail(target.value)}
             />
 
@@ -109,7 +106,7 @@ const SignUp = () => {
 
           {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
 
-          <button type='submit' className='w-full text-md font-medium text-white bg-violet-500 shadow-lg shadow-purple-600/5 p-[10px] rounded-md my-1 hover:bg-purple-600/15 hover:text-purple-600'>
+          <button type='submit' className='w-full text-md font-medium text-white bg-violet-500 shadow-lg p-[10px] rounded-md my-1 hover:bg-purple-600/15 hover:text-purple-600'>
             SIGN UP
           </button>
 
