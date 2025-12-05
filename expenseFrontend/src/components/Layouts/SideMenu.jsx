@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { SIDE_MENU_DATA } from '../../utils/data'
-import { UserContext } from '../../context/userContext.jsx'   // ✅ FIXED
+import { UserContext } from '../../context/userProvider.jsx'   // ✅ FIXED
 import { useNavigate } from 'react-router-dom'
 import CharAvatar from '../Cards/CharAvatar'
 

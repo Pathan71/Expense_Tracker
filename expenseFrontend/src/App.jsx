@@ -5,7 +5,7 @@ import SignUP from './pages/Auth/SignUp'
 import Home from './pages/Dashboard/Home'
 import Income from './pages/Dashboard/Income'
 import Expense from './pages/Dashboard/Expense'
-import UserProvider from './context/userContext.jsx';
+import UserProvider from './context/userProvider.jsx';
 import { Toaster } from 'react-hot-toast'
 
 const App = () => {

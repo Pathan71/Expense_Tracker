@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../../context/userContext.jsx'   // ✅ FIXED
+import { UserContext } from '../../context/userProvider.jsx'   // ✅ FIXED
 import Navbar from './Navbar'
 import SideMenu from './SideMenu'
 
