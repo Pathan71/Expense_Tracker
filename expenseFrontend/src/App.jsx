@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <UserProvider>
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
         <Routes>
           <Route path='/' element={<Root />} />
           <Route path='/login' element={<Login />} />
@@ -21,7 +21,7 @@ const App = () => {
           <Route path='/income' element={<Income />} />
           <Route path='/expense' element={<Expense />} />
         </Routes>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
 
       <Toaster toastOptions={{
         className: "",
