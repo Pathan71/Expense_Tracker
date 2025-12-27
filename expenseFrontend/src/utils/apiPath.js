@@ -1,5 +1,5 @@
 // Base URL comes from environment (DEV / PROD)
-export const BASE_URL = import.meta.env.VITE_BASE_URL;
+export const BASE_URL = https://expense-tracker-s7wa.onrender.com;
 
 // API Paths
 export const API_PATHS = {
