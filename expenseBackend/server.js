@@ -14,7 +14,7 @@ const app = express();
 // Middleware to handle CORS
 app.use(
     cors({
-        origin: process.env.CLIENT_URL || "http://localhost:5173" || 'http://localhost:5174',
+        origin: "http://localhost:5173",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"]
     })
@@ -32,6 +32,10 @@ app.use('/api/v1/dashboard', dashboardRoutes)
 // Server uploads folder
 // app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+
+app.get("/", (req, res) => {
+  res.send("Expense Tracker Backend is Running 🚀");
+});
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
